@@ -1,13 +1,13 @@
 mbUrl = 'http://api.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZWR3YXJkaCIsImEiOiJjaXpxd3h3MDkwMDE3MzJxdTF1enljZ2ViIn0.ewaeb0hRCWBOrQZv4kfuvw'
 
-var gris     		  = L.tileLayer(mbUrl, {id: 'mapbox.light'}),
-	streets  		  = L.tileLayer(mbUrl, {id: 'mapbox.streets'}),
-	dark     		  = L.tileLayer(mbUrl, {id: 'mapbox.dark'}),
-	outdoors 		  = L.tileLayer(mbUrl, {id: 'mapbox.outdoors'}),
-	pirates           = L.tileLayer(mbUrl, {id: 'mapbox.pirates'}),
-	emerald           = L.tileLayer(mbUrl, {id:	'mapbox.emerald'}),
-	satellite		  = L.tileLayer(mbUrl, {id:	'mapbox.satellite'}),
-	sport             = L.tileLayer(mbUrl, {id: 'mapbox.run-bike-hike'});
+var mb_gris     		  = L.tileLayer(mbUrl, {id: 'mapbox.light'}),
+	mb_streets  		  = L.tileLayer(mbUrl, {id: 'mapbox.streets'}),
+	mb_dark     		  = L.tileLayer(mbUrl, {id: 'mapbox.dark'}),
+	mb_outdoors 		  = L.tileLayer(mbUrl, {id: 'mapbox.outdoors'}),
+	mb_pirates           = L.tileLayer(mbUrl, {id: 'mapbox.pirates'}),
+	mb_emerald           = L.tileLayer(mbUrl, {id:	'mapbox.emerald'}),
+	mb_satellite		  = L.tileLayer(mbUrl, {id:	'mapbox.satellite'}),
+	mb_sport             = L.tileLayer(mbUrl, {id: 'mapbox.run-bike-hike'});
 
 var LeafIcon = L.Icon.extend({
 	options: {
@@ -34,19 +34,19 @@ L.marker([49.6498, 0.92926]  ,{icon: vertIcon}).bindPopup('Vie privée').addTo(v
 L.marker([48.84466, 2.34258] ,{icon: bleuIcon}).bindPopup('Etudes').addTo(bleu);
 
 		
-var carto = L.map('mapleaflet', {center: [49, 1], zoom: 7, layers: [emerald, rouge, violet, vert, bleu]});
+var carto = L.map('mapleaflet', {center: [49, 1], zoom: 7, layers: [mb_emerald, rouge, violet, vert, bleu]});
 
 
 
 var fond_plan = {
-				 "Gray": gris,
-				 "Streets": streets,
-				 "Outdoors": outdoors,
-				 "Dark": dark,
-				 "Pirates": pirates,
-				 "Emerald": emerald,
-				 "Sport": sport,
-				 "Satellite": satellite
+				 "Gray": mb_gris,
+				 "Streets": mb_streets,
+				 "Outdoors": mb_outdoors,
+				 "Dark": mb_dark,
+				 "Pirates": mb_pirates,
+				 "Emerald": mb_emerald,
+				 "Sport": mb_sport,
+				 "Satellite": mb_satellite
 				 					};
 
 var couche = {
