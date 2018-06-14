@@ -11,26 +11,24 @@ var mb_gris     		  = L.tileLayer(mbUrl, {id: 'mapbox.light'}),
 
 var LeafIcon = L.Icon.extend({
 	options: {
-		iconSize:   [25, 41],
-		iconAnchor: [12, 41],
-		popupAnchor:[0, -41] 
+		iconSize:   [20, 20]
 	}
 });
 	
-var vertIcon   = new LeafIcon({iconUrl: "../img/leaflet/marqueur_vert.png"}),
-	bleuIcon   = new LeafIcon({iconUrl: "../img/leaflet/marqueur_bleu.png"}),
-	rougeIcon  = new LeafIcon({iconUrl: "../img/leaflet/marqueur_rouge.png"}),
-	violetIcon = new LeafIcon({iconUrl: "../img/leaflet/marqueur_violet.png"});
+var vertIcon   = new LeafIcon({iconUrl: "img/leaflet/c_vert.png"}),
+	bleuIcon   = new LeafIcon({iconUrl: "img/leaflet/c_bleu.png"}),
+	rougeIcon  = new LeafIcon({iconUrl: "img/leaflet/c_rouge.png"}),
+	violetIcon = new LeafIcon({iconUrl: "img/leaflet/c_vert.png"});
 	
 var rouge = new L.LayerGroup(),
 	violet = new L.LayerGroup(),
 	vert = new L.LayerGroup(),
 	bleu = new L.LayerGroup();
 
-L.marker([49.04211, 1.57195] ,{icon: rougeIcon}).bindPopup('Résidence').addTo(rouge),
+L.marker([49.04211, 1.57195] ,{icon: rougeIcon}).bindPopup('<b>Adresse</b><br>9, rue des Prés - 27200 Vernon<br><img src="img/vernon.jpg" style="width: 50px;"/>').addTo(rouge),
 L.marker([48.83102, 2.34052] ,{icon: violetIcon}).bindPopup('Travail').addTo(violet),
-L.marker([48.8439, 2.42658]  ,{icon: vertIcon}).bindPopup('Vie privée').addTo(vert),
-L.marker([49.6498, 0.92926]  ,{icon: vertIcon}).bindPopup('Vie privée').addTo(vert),
+L.marker([48.8439, 2.42658]  ,{icon: vertIcon}).bindPopup('Loisirs').addTo(vert),
+L.marker([49.6498, 0.92926]  ,{icon: vertIcon}).bindPopup('Loisirs').addTo(vert),
 L.marker([48.84466, 2.34258] ,{icon: bleuIcon}).bindPopup('Etudes').addTo(bleu);
 
 		
@@ -50,9 +48,9 @@ var fond_plan = {
 				 					};
 
 var couche = {
-			  "Résidence": rouge,
+			  "Adresse": rouge,
 			  "Travail": violet,
-			  "Vie privée": vert,
+			  "Loisirs": vert,
 			  "Etudes": bleu
 				             };
 							 
