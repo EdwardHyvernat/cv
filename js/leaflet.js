@@ -15,24 +15,23 @@ var LeafIcon = L.Icon.extend({
 	}
 });
 	
-var vertIcon   = new LeafIcon({iconUrl: "img/leaflet/c_vert.png"}),
-	bleuIcon   = new LeafIcon({iconUrl: "img/leaflet/c_bleu.png"}),
-	rougeIcon  = new LeafIcon({iconUrl: "img/leaflet/c_rouge.png"}),
-	violetIcon = new LeafIcon({iconUrl: "img/leaflet/c_vert.png"});
+var rougeIcon   = new LeafIcon({iconUrl: "img/leaflet/c_rouge.png"}),
+	vertIcon   = new LeafIcon({iconUrl: "img/leaflet/c_vert.png"}),
+	bleuIcon  = new LeafIcon({iconUrl: "img/leaflet/c_bleu.png"}),
+	jauneIcon = new LeafIcon({iconUrl: "img/leaflet/c_jaune.png"});
 	
 var rouge = new L.LayerGroup(),
-	violet = new L.LayerGroup(),
 	vert = new L.LayerGroup(),
-	bleu = new L.LayerGroup();
+	bleu = new L.LayerGroup(),
+	jaune = new L.LayerGroup();
 
-L.marker([49.04211, 1.57195] ,{icon: rougeIcon}).bindPopup('<b>Adresse</b><br>9, rue des Prés - 27200 Vernon<br><img src="img/vernon.jpg" style="width: 50px;"/>').addTo(rouge),
-L.marker([48.83102, 2.34052] ,{icon: violetIcon}).bindPopup('Travail').addTo(violet),
-L.marker([48.8439, 2.42658]  ,{icon: vertIcon}).bindPopup('Loisirs').addTo(vert),
-L.marker([49.6498, 0.92926]  ,{icon: vertIcon}).bindPopup('Loisirs').addTo(vert),
-L.marker([48.84466, 2.34258] ,{icon: bleuIcon}).bindPopup('Etudes').addTo(bleu);
-
+L.marker([49.10165, 1.4870] ,{icon: jauneIcon}).bindPopup('<b>Adresse</b><br>9, rue des Prés - 27200 Vernon<br><img src="img/vernon.jpg" style="width: 50px;"/>').addTo(jaune),
+L.marker([48.83102, 2.34052] ,{icon: rougeIcon}).bindPopup('<b>Expérience Pro</b><br>Etablissement Public Foncier IdF<br><i>Administrateur Système d’Information Géographique confirmé</i><br><img src="img/logo_epfif.png" style="width: 50px;"/><br><a href="https://www.epfif.fr" target="_blank">epfif.fr</a>').addTo(rouge),
+L.marker([48.80363, 2.15661] ,{icon: rougeIcon}).bindPopup('<b>Expérience Pro</b><br>Etablissement Public Foncier Yvelines<br><i>Responsable du Système d’Information Géographique</i><img src="img/epfy.jpg" style="width: 50px;"/>').addTo(rouge),
+L.marker([51.50688, -0.07156]  ,{icon: vertIcon}).bindPopup('<b>Navigation</b><br>St Katharine Docks<br><i>Transmanche Zeebruges - Londres - Zeebruges</i><img src="img/sailing_london.jpg" style="width: 50px;"/><br>Octobre 2015 - 5 jours').addTo(vert),
+L.marker([48.84466, 2.34258] ,{icon: bleuIcon}).bindPopup('<b>Formation</b><br>Université Paris IV<br>Licence de Géographie<br><img src="img/paris.png" style="width: 50px;"/>').addTo(bleu);
 		
-var carto = L.map('mapleaflet', {center: [49, 1], zoom: 7, layers: [mb_emerald, rouge, violet, vert, bleu]});
+var carto = L.map('mapleaflet', {center: [50, 1], zoom: 6, layers: [mb_emerald, rouge, vert, bleu, jaune]});
 
 
 
@@ -48,10 +47,10 @@ var fond_plan = {
 				 					};
 
 var couche = {
-			  "Adresse": rouge,
-			  "Travail": violet,
+			  "Expérience Pro": rouge,
 			  "Loisirs": vert,
-			  "Etudes": bleu
+			  "Formation": bleu,
+			  "A Propos": jaune
 				             };
 							 
 L.control.layers(fond_plan, couche).addTo(carto);
